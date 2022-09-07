@@ -11,12 +11,12 @@ Objectives:
 Description:
 Schedule:
 
-Work session 2.1: Adding additional link-attributes and routing few postcodes (only if MATSim session is before)
+Work session 2.1: Adding additional link-attributes and routing few postcode pairs (only if MATSim session is before)
 Goal:
 Objectives:
 Description: Next to the pedestrian crossing facilities and types of signalised protection, in this session we will add few
 attributes (UK Open Data) to the routable  network such as Streetlights, Entrance points to Public Green Space, Public Buildings...
-Then we will produce the most attractive walking route between selected origin-destination postcode pairs.   
+Then we will produce the most attractive walking route between selected origin-destination postcode pairs.
 Schedule:
 
 Technical requirements
