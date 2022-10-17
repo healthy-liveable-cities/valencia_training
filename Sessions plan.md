@@ -61,7 +61,7 @@ This session will outline an open science analysis workflow using integrated pro
 
 **Pre-requirements:** Some basic knowledge of R and RStudio is desirable but not essential since the training material will be already scripted and ready for users to run. 
 
-**Objectives:** This session will use the routable network files (i.e. linestrings and points) created in the previous session and add selected new information from other open data sources onto the routable network file.  
+**Objectives:** This session will use the routable network files (i.e. linestrings and points) created in the previous session and add selected new information from other open data sources onto the routable network files.  
 
 **Description:** Participants will get some basic understanding of the workflow behind collecting and joining selected Built Environment (BE) attributes onto a link-based and point-based data sets that will affect pedestrian route choice. On the linestring file (i.e. link-based data set), participants will add _Streetlights_ as link attributes, and on the point file (i.e. node-based data set) _pedestrian crossings (signalised and non-signalised)_ and provided _z-coordinates_ as node attributes. The results from this session will be used in the routing taught in the Work Session 4.    
 
@@ -81,7 +81,7 @@ This session will outline an open science analysis workflow using integrated pro
 
 **Moderator:** Irena Itova
 
-**Goal: ** To create a walking disutility function and produce and compare different walking routes outputs between few postcode pairs. 
+**Goal:** To create a walking disutility function and produce and compare different walking routes outputs between few postcode pairs. 
 
 **Pre-requirements:** Some basic knowledge of running the basic MATSim commands gained from the MATSim session (held on October 31st) is desirable but not essential since the host and moderator will be helping participants with running the RouteComparison program from the MATSim environment. 
 
