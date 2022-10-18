@@ -108,4 +108,4 @@ new attributes (from UK Open Data and a model) to the routable network such as _
 
 ## Software requirements (for the workshop hosts)
 
-RStudio Cloud Academic premium plan https://rstudio.cloud/plans/premium?discount=academic. Note: It is confirmed that Carl needs individual subscription and Irena will share the subscription with Ali. 
+An [Instructor subscription for RStudio Cloud](https://rstudio.cloud/plans/instructor?option=instructor) has been arranged, with Carl, Irena and Ali as admins.  There is an FAQ for course administration [here](https://education.rstudio.com/blog/2020/04/teaching-with-rstudio-cloud-q-a/) that looks useful.  This should allow us to provide access for 20 students in our workshop. 
