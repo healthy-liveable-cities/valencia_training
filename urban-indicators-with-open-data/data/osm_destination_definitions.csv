@@ -1,0 +1,39 @@
+Destination,Concept,key,value,global_freq_2018_nov,description,note
+Fresh Food / Market,Supermarket,shop,supermarket,"343,085",A large store for groceries and other goods.,
+Fresh Food / Market,Supermarket,supermarket,yes,95,,if not null then is a supermarket
+Fresh Food / Market,Supermarket,amenity,supermarket,37,,
+Fresh Food / Market,Supermarket,building,supermarket,"8,251",A building built as a supermarket,
+Fresh Food / Market,Supermarket,shop,grocery,"1,137",,
+Fresh Food / Market,Bakery,shop,bakery,"154,061",A shop selling bread,"Clusters of fresh food proprieters might indicate historical village hubs (or shopping centres, idk)"
+Fresh Food / Market,Bakery,shop,pastry,"6,436",A shop where sweet bakery products are produced and sold,"Clusters of fresh food proprieters might indicate historical village hubs (or shopping centres, idk)"
+Fresh Food / Market,Bakery,name,Tortillería,,,
+Fresh Food / Market,Meat / Seafood,shop,butcher,"60,510",A shop selling meat or meat products.,"Clusters of fresh food proprieters might indicate historical village hubs (or shopping centres, idk)"
+Fresh Food / Market,Meat / Seafood,shop,seafood,"11,651",A shop selling fish/seafood.,"Clusters of fresh food proprieters might indicate historical village hubs (or shopping centres, idk)"
+Fresh Food / Market,Meat / Seafood,shop,fishmonger,"1,029",,"Clusters of fresh food proprieters might indicate historical village hubs (or shopping centres, idk)"
+Fresh Food / Market,Fruit and Veg,shop,greengrocer,"33,791",A shop which sells fruits and vegetables,"Clusters of fresh food proprieters might indicate historical village hubs (or shopping centres, idk)"
+Fresh Food / Market,Fruit and Veg,shop,fruit,50,,
+Fresh Food / Market,Fruit and Veg,shop,fruits,22,,
+Fresh Food / Market,Fruit and Veg,shop,vegetables,10,,
+Fresh Food / Market,Deli,shop,deli,"12,735",A delicatessen store,"Clusters of fresh food proprieters might indicate historical village hubs (or shopping centres, idk)"
+Fresh Food / Market,Deli,shop,cheese,"2,415",A shop mainly selling cheese.,"Clusters of fresh food proprieters might indicate historical village hubs (or shopping centres, idk)"
+Fresh Food / Market,Market,amenity,marketplace,52267,A marketplace where trade is regulated.,"Perhaps safest to consider as 'convenience' (although potentially distinct from, or more than this)"
+Fresh Food / Market,Market,amenity,market,206,,included for completeness
+Fresh Food / Market,Market,amenity,market_place,41,,included for completeness
+Fresh Food / Market,Market,amenity,public_market,22,,included for completeness
+Fresh Food / Market,Market,shop,marketplace,248,,
+Fresh Food / Market,Market,shop,market,246,,
+Convenience,Convenience,shop,convenience,"457,453",A small local shop carrying a small subset of the items you would find in a supermarket.,
+Convenience,Convenience,amenity,fuel,"398,945",A retail facility for refueling cars,"<<< not sure if we should include this, some international reviewers questioned inclusion of petrol stations as convenience."
+Convenience,Convenience,shop,kiosk,"72,391","A small shop on the pavement that sells magazines, tobacco, newspapers, sweets and stamps.",
+Convenience,Convenience,shop,newsagent,"19,245",A shop selling newspapers and magazines.,
+Convenience,Convenience,shop,newsagency,10,,
+Convenience,Convenience,amenity,newsagency,3,,
+Public transport stop (any),Public transport stop (any),public_transport,platform,,,
+Public transport stop (any),Public transport stop (any),public_transport,stop_position,,,
+Public transport stop (any),Public transport stop (any),highway,bus_stop,,,
+Public transport stop (any),Public transport stop (any),highway,platform,,,
+Public transport stop (any),Public transport stop (any),railway,platform,,,
+Public transport stop (any),Public transport stop (any),public_transport,station,,,
+Public transport stop (any),Public transport stop (any),amenity,ferry_terminal,,,
+Public transport stop (any),Public transport stop (any),railway,tram_stop,,,
+Public transport stop (any),Public transport stop (any),railway,stop,,,

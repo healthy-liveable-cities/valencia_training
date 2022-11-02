@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.179">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Carl Higgs">
+<meta name="dcterms.date" content="2022-11-02">
+
+<title>Urban indicators with open data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="urban-indicators-with-open-data_files/libs/clipboard/clipboard.min.js"></script>
+<script src="urban-indicators-with-open-data_files/libs/quarto-html/quarto.js"></script>
+<script src="urban-indicators-with-open-data_files/libs/quarto-html/popper.min.js"></script>
+<script src="urban-indicators-with-open-data_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="urban-indicators-with-open-data_files/libs/quarto-html/anchor.min.js"></script>
+<link href="urban-indicators-with-open-data_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="urban-indicators-with-open-data_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="urban-indicators-with-open-data_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="urban-indicators-with-open-data_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="urban-indicators-with-open-data_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#session-overview" id="toc-session-overview" class="nav-link active" data-scroll-target="#session-overview">Session overview</a>
+  <ul class="collapse">
+  <li><a href="#contents" id="toc-contents" class="nav-link" data-scroll-target="#contents">Contents</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
+  <li><a href="#reproducible-science" id="toc-reproducible-science" class="nav-link" data-scroll-target="#reproducible-science">Reproducible science</a></li>
+  <li><a href="#openstreetmap-and-volunteered-geographic-information" id="toc-openstreetmap-and-volunteered-geographic-information" class="nav-link" data-scroll-target="#openstreetmap-and-volunteered-geographic-information">OpenStreetMap and Volunteered Geographic Information</a></li>
+  </ul></li>
+  <li><a href="#measuring-walkability-for-a-single-point" id="toc-measuring-walkability-for-a-single-point" class="nav-link" data-scroll-target="#measuring-walkability-for-a-single-point">Measuring walkability for a single point</a>
+  <ul class="collapse">
+  <li><a href="#constructing-a-routable-network" id="toc-constructing-a-routable-network" class="nav-link" data-scroll-target="#constructing-a-routable-network">Constructing a routable network</a></li>
+  <li><a href="#representing-street-intersections" id="toc-representing-street-intersections" class="nav-link" data-scroll-target="#representing-street-intersections">Representing street intersections</a></li>
+  <li><a href="#evaluating-routing-from-an-origin" id="toc-evaluating-routing-from-an-origin" class="nav-link" data-scroll-target="#evaluating-routing-from-an-origin">Evaluating routing from an origin</a></li>
+  <li><a href="#identifying-a-local-walkable-neighbourhood" id="toc-identifying-a-local-walkable-neighbourhood" class="nav-link" data-scroll-target="#identifying-a-local-walkable-neighbourhood">Identifying a local walkable neighbourhood</a></li>
+  <li><a href="#identifying-destinations" id="toc-identifying-destinations" class="nav-link" data-scroll-target="#identifying-destinations">Identifying destinations</a></li>
+  <li><a href="#walkability" id="toc-walkability" class="nav-link" data-scroll-target="#walkability">Walkability</a></li>
+  </ul></li>
+  <li><a href="#measuring-walkability-for-a-city" id="toc-measuring-walkability-for-a-city" class="nav-link" data-scroll-target="#measuring-walkability-for-a-city">Measuring walkability for a city</a>
+  <ul class="collapse">
+  <li><a href="#retrieve-population-data-from-global-human-settlements-layer" id="toc-retrieve-population-data-from-global-human-settlements-layer" class="nav-link" data-scroll-target="#retrieve-population-data-from-global-human-settlements-layer">Retrieve population data from Global Human Settlements Layer</a></li>
+  <li><a href="#retrieve-an-archived-file-of-openstreetmap-for-a-point-in-time-and-place" id="toc-retrieve-an-archived-file-of-openstreetmap-for-a-point-in-time-and-place" class="nav-link" data-scroll-target="#retrieve-an-archived-file-of-openstreetmap-for-a-point-in-time-and-place">Retrieve an archived file of OpenStreetMap for a point in time and place</a></li>
+  <li><a href="#derive-a-dataset-of-features-of-interest-from-the-openstreetmap-data-using-key-value-pair-tags-and-synonyms" id="toc-derive-a-dataset-of-features-of-interest-from-the-openstreetmap-data-using-key-value-pair-tags-and-synonyms" class="nav-link" data-scroll-target="#derive-a-dataset-of-features-of-interest-from-the-openstreetmap-data-using-key-value-pair-tags-and-synonyms">Derive a dataset of features of interest from the OpenStreetMap data using key-value pair tags and synonyms</a></li>
+  <li><a href="#derive-a-routable-pedestrian-network-from-openstreetmap-using-osmnx" id="toc-derive-a-routable-pedestrian-network-from-openstreetmap-using-osmnx" class="nav-link" data-scroll-target="#derive-a-routable-pedestrian-network-from-openstreetmap-using-osmnx">Derive a routable pedestrian network from OpenStreetMap using OSMnx</a></li>
+  <li><a href="#derive-cleaned-intersections" id="toc-derive-cleaned-intersections" class="nav-link" data-scroll-target="#derive-cleaned-intersections">Derive cleaned intersections</a></li>
+  <li><a href="#generate-sample-points-at-regular-intervals-along-routable-network" id="toc-generate-sample-points-at-regular-intervals-along-routable-network" class="nav-link" data-scroll-target="#generate-sample-points-at-regular-intervals-along-routable-network">Generate sample points at regular intervals along routable network</a></li>
+  <li><a href="#summarise-population-distribution-and-density-statistics-for-population-and-intersections-for-grid-cells" id="toc-summarise-population-distribution-and-density-statistics-for-population-and-intersections-for-grid-cells" class="nav-link" data-scroll-target="#summarise-population-distribution-and-density-statistics-for-population-and-intersections-for-grid-cells">Summarise population distribution and density statistics for population and intersections for grid cells</a></li>
+  <li><a href="#estimate-1000m-walkable-neighbourhood-densities-for-sample-points" id="toc-estimate-1000m-walkable-neighbourhood-densities-for-sample-points" class="nav-link" data-scroll-target="#estimate-1000m-walkable-neighbourhood-densities-for-sample-points">Estimate 1000m walkable neighbourhood densities for sample points</a></li>
+  <li><a href="#estimate-access-to-each-amenity-type-within-threshold-distances-ie.-for-this-500m" id="toc-estimate-access-to-each-amenity-type-within-threshold-distances-ie.-for-this-500m" class="nav-link" data-scroll-target="#estimate-access-to-each-amenity-type-within-threshold-distances-ie.-for-this-500m">Estimate access to each amenity type within threshold distances (ie. for this, 500m)</a></li>
+  <li><a href="#calculate-a-daily-living-access-score-as-a-measure-of-access-to-a-mixed-range-of-services-and-amenities-ie.-land-use-mix-proxy-ill-provide-links-to-literature-re-this" id="toc-calculate-a-daily-living-access-score-as-a-measure-of-access-to-a-mixed-range-of-services-and-amenities-ie.-land-use-mix-proxy-ill-provide-links-to-literature-re-this" class="nav-link" data-scroll-target="#calculate-a-daily-living-access-score-as-a-measure-of-access-to-a-mixed-range-of-services-and-amenities-ie.-land-use-mix-proxy-ill-provide-links-to-literature-re-this">Calculate a ‘daily living access score’ as a measure of access to a mixed range of services and amenities (ie. land use mix proxy; i’ll provide links to literature re this)</a></li>
+  <li><a href="#calculate-average-scores-of-population-density-street-connectivity-itnersection-density-and-daily-living-score-for-small-area-hexagon-grid" id="toc-calculate-average-scores-of-population-density-street-connectivity-itnersection-density-and-daily-living-score-for-small-area-hexagon-grid" class="nav-link" data-scroll-target="#calculate-average-scores-of-population-density-street-connectivity-itnersection-density-and-daily-living-score-for-small-area-hexagon-grid">Calculate average scores of population density, street connectivity (itnersection density) and daily living score for small area hexagon grid</a></li>
+  <li><a href="#calculate-walkability-index-for-sample-points-using-two-methods" id="toc-calculate-walkability-index-for-sample-points-using-two-methods" class="nav-link" data-scroll-target="#calculate-walkability-index-for-sample-points-using-two-methods">Calculate walkability index for sample points using two methods</a></li>
+  <li><a href="#compare-and-consider-applications-and-implications-of-these-walkability-index-implementations-and-strengths-and-limitations-of-both-approaches" id="toc-compare-and-consider-applications-and-implications-of-these-walkability-index-implementations-and-strengths-and-limitations-of-both-approaches" class="nav-link" data-scroll-target="#compare-and-consider-applications-and-implications-of-these-walkability-index-implementations-and-strengths-and-limitations-of-both-approaches">Compare and consider applications and implications of these walkability index implementations, and strengths and limitations of both approaches</a></li>
+  <li><a href="#walkability-and-deprivation" id="toc-walkability-and-deprivation" class="nav-link" data-scroll-target="#walkability-and-deprivation">Walkability and Deprivation?</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Urban indicators with open data</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Carl Higgs </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 2, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="session-overview" class="level1">
+<h1>Session overview</h1>
+<p>This session will outline an open science analysis workflow using integrated project planning to generate documented data and a report on walkability for a single address point (our hotel), and then for a city (Bury, Manchester), while critically engaging with the strengths and limitations of the approach.</p>
+<p>An overview will be given of core concepts. It is understood that given the diversity of backgrounds, attendees will have varying levels of familiarity or interest in these. Detailed notes have been provided, which allow people to follow along at their own pace. Please focus on what is of interest, modify the code if you like, explore tangents and hyperlinks if you wish.</p>
+<p>This session provides an opportunity to question our methods. What do these mean when applied in difference places? Or using different parameters? What are the strengths, limitations, and possibilities? Let’s question these things to get the most from the session, and time will fly!</p>
+<section id="contents" class="level2">
+<h2 class="anchored" data-anchor-id="contents">Contents</h2>
+<ul>
+<li><p><a href="#motivation">Motivation</a> — why look at this?</p></li>
+<li><p><a href="#reproducible-science">Reproducible science</a> — we’re aiming to do it, so we’ll cover some core concepts and terms so we’re all on the same page</p></li>
+<li><p><a href="#openstreetmap-and-volunteered-geographic-information">OpenStreetMap and Volunteered Geographic Information</a> — the challenges and opportunities of open data</p></li>
+<li><p><a href="#measuring-walkability-for-a-single-point">Measuring walkability for a single point</a> (our hotel)</p></li>
+<li><p><a href="#measuring-walkability-for-a-city">Measuring walkability for a city</a> (Bury in Greater Manchester, UK)</p></li>
+</ul>
+<p>That’s ambitious for 1.5 hours, so we may not cover everything, but those interested can return to the material or linked resources at a later point.</p>
+</section>
+<section id="motivation" class="level2">
+<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<p>Spatial indicators of urban design and transport features, calculated at a range of scales from address points, to high resolution grids of the spatial distribution, to overall city summaries are valued by a range of stakeholders who seek to create healthy and sustainable cities: mapped, they can support policy makers and planners to target interventions within cities, and as high level statistics they can be used to compare performance across cities, and when measured across time can be used to monitor progress for achieving urban design goals for reducing inequities. They also provide a rich source of data for those advocating for disadvantaged and vulnerable community populations, to provide evidence for whether urban policies for where they live are serving their needs. Through data linkage, they can be used as environmental covariates in epidemiological analyses concerned with health, wellbeing or other outcomes.</p>
+<p>Measurement of spatial urban indicators involves overcoming multiple challenges, particularly with regard to data availability, comparability, and quality. For the locations where data is available, the underlying definitions and assumptions may mean it may not always be suitable for making fair comparisons with other locations, be that within a city, or across multiple cities. Using appropriate definitions and justifying assumptions taken in a transparent way is crucial if one seeks measure urban phenomena within and across a series of cities in a fair and comparable way, that respects local contexts.</p>
+<p>The <a href="https://healthysustainablecities.org">Global Healthy and Sustainable City Indicators Collaboration</a> study aims to build a network for benchmarking and monitoring policy and spatial indicators of urban design and transport features for cities in diverse contexts internationally. <a href="https://github.com/global-healthy-liveable-cities/global-indicators">Open source software</a> was developed to support this effort, providing a framework for analysis using open and/or custom data (where necessary) to measure a core set of spatial urban indicators, including a ‘<a href="http://www.ipenproject.org/methods_getstarted.html#Walkability">walkability index</a>’. This is a composite measure supported by a body of evidence [e.g.&nbsp;<a href="https://doi.org/10.1007/s00038-012-0435-0">Grasser et al.&nbsp;2012</a>, <a href="https://doi.org/10.1016/j.healthplace.2013.10.005">Villanueva et al.&nbsp;2013</a>, <a href="https://doi.org/10.1186/s12877-022-03233-x">Akinci et al.&nbsp;2022</a> …] detailing how these aspects support living healthier, more active lifestyles, and is calculated as a function of</p>
+<ul>
+<li><p>population density (for service demand and social connection opportunities)</p></li>
+<li><p>street connectivity (indicative of ease of getting around)</p></li>
+<li><p>neighbourhood access to a mixed range of services and amenities used in daily life (a supermarket, a convenience store, a public transport stop: ie. a minimal set of services typically available in a place where ‘living locally’ is more feasible)</p></li>
+</ul>
+<p>We calculated this measure using open data for 25 cities (mostly; where found necessary we used other local data) (<a href="https://doi.org/10.1016/S2214-109X(22)00072-9">Boeing et al., 2022</a>) and used the resulting <a href="https://doi.org/10.25439/rmt.15072009">dataset</a> for within- and between-city comparisons which we disseminated in a <a href="https://doi.org/10.25439/rmt.c.6012649">series of reports</a> and <a href="https://www.healthysustainablecities.org/25cities">infographic scorecards</a>. The study provided a proof-of-concept that we now aim to build upon with a <a href="https://www.healthysustainablecities.org/1000cities">1000-city challenge</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/25%20city%20walkability%20comparison.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Relative neighbourhood walkability for 25 cities from diverse regions internationally</figcaption><p></p>
+</figure>
+</div>
+<p>This walkability measure is not perfect nor the full story; its a model, not reality itself. For example, it doesn’t capture details on sidewalk presence (which is assumed, but we know this is not always the case), quality or width, nor slope or perceived safety from crime. But it provides a parsimonious model of core aspects that we know can shape how urban populations interact and utilise their neighbourhoods, the design of which can have important downstream <a href="https://doi.org/10.1016/S2214-109X(22)00070-5">health and wellbeing impacts</a>.</p>
+</section>
+<section id="reproducible-science" class="level2">
+<h2 class="anchored" data-anchor-id="reproducible-science">Reproducible science</h2>
+<p>The motivation to use a scripted programming language for scientific analyses is for reproducibility and transparency, important aspects of <a href="https://unesdoc.unesco.org/ark:/48223/pf0000379949">open science</a>, both of which support the credibility of research. Code, the written instructions to run a software program, can be used as a recipe to recreate your or someone else’s analysis at a later date, and so inspires confidence in the rigour of the practitioners. The additional benefit is that analyses written as code in plain text files are a natural fit for version control, with changes able to be tracked across time using version control software like <a href="https://git-scm.com/">Git</a> and a project management system like <a href="https://github.com/">GitHub</a>.</p>
+<p>This helps with sharing workflows for calculating spatial urban indicators like the one below with others so that they can apply them across diverse settings.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Spatial%20indicators%20workflow%20-%202022-11-02.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>General process model for a scripted workflow for calculation, validation, analysis, and dissemination of spatial urban indicators. This process that may be adapted for production of specific indicators or measures across a broad range of contexts given available data.</em></figcaption><p></p>
+</figure>
+</div>
+<p>In practice, much care needs to be taken to document the computational environment the code runs in and the software packages used, as these can be complex and therefore challenging to reproduce. There are various solutions to this challenge to reproducibility: in our ‘<a href="https://github.com/global-healthy-liveable-cities/global-indicators/">global indicators</a>’ project we use <a href="https://www.docker.com/">Docker</a> to define ‘images’ of software environments that can be launched in ‘containers’; alternatively, platforms like <a href="https://rstudio.cloud/">RStudio Cloud</a> allow for curated computational environments to be accessed via the internet, which is particularly valuable in a training session such as this. It means workshop participants don’t have to install software they might not be familiar with, and can jump in to use it for applied problem solving.</p>
+<p><a href="https://www.r-project.org/">R</a> and <a href="https://www.python.org/">Python</a> may be the two most popular languages for performing computational scientific analyses. The R language was developed with a particular emphasis on statistics, but both R and Python are open source and broadly used. Python code can even be launched within R using the <a href="https://rstudio.github.io/reticulate/">reticulate</a> package.</p>
+<div style="float: right;">
+<div class="quarto-figure quarto-figure-right" style="float: right;">
+<figure class="figure">
+<p><img src="images/reticulated_python.png" class="img-fluid figure-img" alt="reticulated python" width="258"></p>
+</figure>
+</div>
+</div>
+<p>Either language can be used for spatial and network analyses of urban environments, however I will feature some particular software packages authored for Python.</p>
+<p>The following code block is used to set up a computational environment to support reproducible science use Python within R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">RETICULATE_PYTHON=</span><span class="st">"/cloud/project/miniconda/envs/r-reticulate/bin/python"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">use_condaenv</span>(<span class="st">"r-reticulate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(if interested, for full details see the Rstudio Cloud <a href="https://rstudio.cloud/learn/guide#space-settings-base">base project</a> file <code>setup.R</code> and the further file for setting up Python packages using the <a href="https://docs.conda.io/en/latest/">conda</a> package manager, <code>conda_setup.R</code>)</p>
+<p>A caveat: for spatial analysis, I usually I use <a href="https://postgis.net/">PostGIS</a> (a spatial database extension for <a href="https://www.postgresql.org/">PostgreSQL</a>), and increasingly use <a href="https://www.docker.com/">Docker</a> to set up my computational environments. For this session I attempted to make things simple/consistent for everyone by using RStudio Cloud, but I had some complications, which we can discuss – perhaps this will be instructional for the complexity of setting up and sharing computational environments!</p>
+</section>
+<section id="openstreetmap-and-volunteered-geographic-information" class="level2">
+<h2 class="anchored" data-anchor-id="openstreetmap-and-volunteered-geographic-information">OpenStreetMap and Volunteered Geographic Information</h2>
+<p><a href="openstreetmap.org">OpenStreetMap</a> is a community mapping platform, developed by a UK software developer called Steve Coast in <a href="https://wiki.openstreetmap.org/wiki/History_of_OpenStreetMap">2004</a> with an aim of facilitating the collaborative cataloguing and distribution of open geographical data; its usage globally particularly took off from 2007. Historical archives for the ‘<a href="https://planet.openstreetmap.org/">planet</a>’ can be retrieved back to that time; however, often <a href="https://download.geofabrik.de/">geographic excerpts</a> for particular regions of interest are more convenient. <a href="https://kwarc.info/teaching/TDM/Borges.pdf">No data is perfect</a>, and in addition to providing opportunities community contributed data has its own <a href="https://library.oapen.org/bitstream/handle/20.500.12657/58430/1/9783839463109.pdf#page=206">limitations</a> to be aware of. These include potential bias in coverage (people are more likely to map where they live, so expect denser urban areas to have more timely and comprehensive representative) - both within cities, and between cities. For example, OpenStreetMap is used for <a href="https://www.hotosm.org/impact-areas/">humanitarian purposes</a> in many locations, and while hard infrastructure (e.g.&nbsp;<a href="https://doi.org/10.1371%2Fjournal.pone.0180698">roads</a>) may be more likely to be well represented, it cannot be assumed that this is the case for all amenities in all locations. For example, through iterative validation with local partners in Maiduguri, Nigeria, we found that food and convenience locations were not well represented in OpenStreetMap for that city and instead ensured that we could use an alternative data source to represent these locations. This is why official, government run open data portals are also incredibly important — they may be updated in a less timely manner, but ideally they would also feed into OpenStreetMap (ie. its not just people in the community tagging a place they know; people also make larger scale contributions to OpenStreetMap from broader datasets, and government data is incredibly important to support this).</p>
+<p>To understand how features are represented in OpenStreetMap using key:value pairs known as ‘tags’, it is recommended to consult <a href="https://wiki.openstreetmap.org/wiki/Tagging">community tagging guidelines</a>. For example, one way of representing a supermarket is to tag a point location with the key:value pair attribute “<a href="https://taginfo.openstreetmap.org/tags/shop=supermarket">shop=supermarket</a>” (the most common way; 426,402 tags globally at the time of writing), but on 8 occasions people have coded this as “<a href="https://taginfo.openstreetmap.org/tags/amenity=supermarket">amenity=supermarket</a>”; its not common, and it might not be right, but people have done it, and we know what they mean. So when seeking to capture how people represent the world in data, its important to consider equivalences or synonyms; both what they ‘should’ do, and what they ‘might’ do, and how both of these may vary geographically (eg. use of different languages, or concepts for ‘fresh food vendors’ in different locations, which might be what you’re actually interested in). One option to review both ‘how’ and ‘where’ features are tagged is to use OpenStreetMap <a href="https://taginfo.openstreetmap.org/">TagInfo</a>, which allows exploration of the frequency of key-value pair tag combinations, as well as generate a link to find these in the current version of OpenStreetmap using <a href="https://overpass-turbo.eu/s/1nbY">Overpass Turbo</a> (Clicking on the link will take you to a map displaying the 8 locations where supermarkets were tagged idiosyncratically as “amenity=supermarket”).</p>
+</section>
+</section>
+<section id="measuring-walkability-for-a-single-point" class="level1">
+<h1>Measuring walkability for a single point</h1>
+<p>The purpose of this section is to introduce the core methods in the process of calculating a walkability index. Its intended that we’ll do this for a single address (e.g.&nbsp;Carrer de Ricardo Micó, 1, 46009 València, Valencia), but with a view to later performing this analysis to get the spatial distribution of ‘walkability’ for a city (Bury in the UK).</p>
+<section id="constructing-a-routable-network" class="level2">
+<h2 class="anchored" data-anchor-id="constructing-a-routable-network">Constructing a routable network</h2>
+<p>There are multiple ways one can retrieve data from OpenStreetMap in order to construct a routable network. One commonly used software package that supports this is <a href="https://osmnx.readthedocs.io/en/stable/index.html">OSMnx</a>, a library authored by Geoff Boeing for modelling connectivity and other urban metrics using OpenStreetMap with the network analysis library <a href="https://networkx.org/">NetworkX</a> (hence the name, OSMnx). Here we’ll work through how this is done.</p>
+<p>First, we import the libraries we will be using for this analysis. For OSMnx, we print out the version, so if we return to this code later we better understand the underlying software context at the time when we ran it. This is important for reproducibility, since features and implementation can change over time (e.g.&nbsp;the functions in version 0.14 were different from the ones in 1.2.2, and require different code). This is part of the metadata we can record for our project.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> osmnx <span class="im">as</span> ox              <span class="co"># to derive network from OpenStreetMap data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx           <span class="co"># for network analysis</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt <span class="co"># for creating plots</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np              <span class="co"># for numerical evaluation</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd             <span class="co"># for tabular data representation</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd         <span class="co"># for geographical data representation</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>ox.settings.log_console<span class="op">=</span><span class="va">True</span> <span class="co"># print what's happening in the console</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>ox.settings.use_cache<span class="op">=</span><span class="va">True</span> <span class="co"># if something has been downloaded, retain it</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"OSMnx Version: </span><span class="sc">{</span>ox<span class="sc">.</span>__version__<span class="sc">}</span><span class="ss">"</span>) <span class="co"># display the version being used</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>OSMnx Version: 1.2.2</code></pre>
+</div>
+</div>
+<p>OSMnx has default route types, however these can be customised; this one allows both walking and cycling networks, but excludes features tagged as ‘areas’ (FYI, its an open question how to most appropriate represent these, as discussed <a href="https://github.com/global-healthy-liveable-cities/global-indicators/issues/161">here</a>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pedestrian <span class="op">=</span> (</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>   <span class="st">'["highway"]'</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>   <span class="st">'["area"!~"yes"]'</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>   <span class="st">'["highway"!~"motor|proposed|construction|abandoned|platform|raceway"]'</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>   <span class="st">'["foot"!~"no"]'</span>  </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>   <span class="st">'["service"!~"private"]'</span> </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>   <span class="st">'["access"!~"private"]'</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>   )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here is a basic example of retrieving the 400m network graph using this pedestrian network filter around our hotel, or other address (you can change this variable if you like!). Running the code block below will display a log of messages displaying what is being done (I set the option to display logging on for this exercise, then turn it off), and afterwards we’ll have a look at what we can do with the results:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>address <span class="op">=</span> <span class="st">"Carrer de Ricardo Micó, 1, 46009 València, Valencia"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>analysis_distance <span class="op">=</span> <span class="dv">500</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> ox.graph_from_address(address, custom_filter<span class="op">=</span> pedestrian, dist<span class="op">=</span>analysis_distance)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>ox.settings.log_console<span class="op">=</span><span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>So, in the output from running the above (<em>which you can see in RStudio after running the code, but not the rendered outputs, sorry</em>) we see the gist of the process that the OSMnx software takes to locate coordinates for the given address, and retrieve an excerpt of features corresponding to the criteria in our filter for a bounding box corresponding to the supplied distance that is centred upon the specified origin point (ie. our hotel). It then uses an <a href="https://doi.org/10.1016/j.compenvurbsys.2017.05.004">algorithm</a> to simplify the cartographic representation so that it can function as a routable network, restricted to paths reachable within 500m of the origin location. I chose 500m as this is a relatively constrained scale that allows us to see some detail, and doesn’t take too long/too much bandwidth to download in a workshop!</p>
+<p>We can plot this to see what it looks like, and hopefully we’ll recognise the layout (if we don’t, perhaps the geocoding of the origin text address has failed due to an ambiguous location):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> ox.plot_graph(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    G<span class="op">=</span>G, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    node_size<span class="op">=</span><span class="dv">3</span>, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    bgcolor<span class="op">=</span><span class="st">'white'</span>, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    edge_color<span class="op">=</span><span class="st">'gray'</span>, </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    node_color<span class="op">=</span><span class="st">'black'</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="768"></p>
+</div>
+</div>
+<p>The above map looks pretty recognisable to me — we can see the street outside our hotel in the middle, and various paths radiating out from this, including along and across the Jardi del Turia, up to 500 metres away. For our workshop, let’s proceed assuming this is more or less accurate.</p>
+</section>
+<section id="representing-street-intersections" class="level2">
+<h2 class="anchored" data-anchor-id="representing-street-intersections">Representing street intersections</h2>
+<p>In the above figure, we also notice how a network graph like this that can support routing analyses may not necessarily be appropriate for evaluating the ‘true’ locations of intersections. Its still quite a bit over complex, and usually one would clean a dataset of intersection ‘nodes’ (the clusters of dots in the above plot) before evaluating street connectivity in terms of the number of intersections within a particular area. The reason why is, for example a roundabout could be represented as perhaps 4, 12, or even more nodes depending how detailed it has been represented cartographically (eg intersections of multiple lanes of traffic, footpaths, cycleways); for pedestrian purposes though, it perhaps should be counted just as a single intersection.</p>
+<p>The problem is, on the one hand manual data cleaning is rarely feasible; on the other, its tricky to get a ‘once size fits all’ algorithm for cleaning networks. OSMnx has a ‘consolidate intersections’ function, but it only offers a single parameter to tune this; being, a distance radius within which nodes should theoretically be simplified. It makes things simple, which might be nice, but can you rely on it? At the very least, you should evaluate the assumption that you can. One way of doing this is to identify a range of different network topologies in your study region(s) of interest, and visually examine the implications of cleaning using a series of distances (eg 5, 8, 10, 12, and 15 metres).</p>
+<p>This is a somewhat complicated procedure, so rather than write it out multiple times, we’ll define a function to do perform this sensitivity analysis of the tolerance parameter for consolidating intersections given a particular address, for a series of parameter options across a given distance:</p>
+<div class="cell">
+
+</div>
+<p>Now we have this function, we can run it quite simply for a default network analysis distance of 250 metres by supplying an address and our network definition. Below, we iterate over a series of three addresses in different contexts to get a sense of how this intersection cleaning operates in the address we defined above, as well as different suburbs of Bury, in Greater Manchester, UK.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>places <span class="op">=</span> [</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  address,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Bury, Greater Manchester, United Kingdom"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Ramsbottom, Greater Manchester, United Kingdom"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tottington, Greater Manchester, United Kingdom"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Radcliffe, Greater Manchester, United Kingdom"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Whitefield, Greater Manchester, United Kingdom"</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Prestwich, Heaton Park, Greater Manchester, United Kingdom"</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> place <span class="kw">in</span> places:</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  intersection_tuning(place, custom_filter<span class="op">=</span>pedestrian)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-7-3.png" class="img-fluid" width="1728"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-7-4.png" class="img-fluid" width="1728"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-7-5.png" class="img-fluid" width="1728"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-7-6.png" class="img-fluid" width="1728"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-7-7.png" class="img-fluid" width="1728"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-7-8.png" class="img-fluid" width="1728"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-7-9.png" class="img-fluid" width="1728"></p>
+</div>
+</div>
+<p><em>(Please excuse the look of these plots -- I wrote this code to be run in Python, and in RStudio it doesn’t display as neatly as I intended; it looks better when exported (see the rendered Quarto Markdown document), but the scale still isn’t right. Ideally also there might be a basemap to go with them, but again, its a bit more complicated for me doing this via R -- but its sufficient to get the idea, so let’s keep it simple and move on!)</em></p>
+<p>You can consider these representations of the respective addresses and cross reference them by searching for these same addresses on <a href="https://www.google.com/maps">Google</a> (useful for its satellite base map) and <a href="https://www.openstreetmap.org/">OpenStreetMap</a> (useful as the source of the data we are retrieving).</p>
+<p>The important thing is what they show, which is that the choice of tuning parameter is a very important methodological decision, the choice of which should be justified. Below is a portion from OpenStreetMap roughly corresponding to the final set of plots for “Prestwich, Heaton Park, Greater Manchester, United Kingdom”, and comparing results of cleaning with a tolerance of 10 m (left) and 12 m (right). In both images, we see that the areas particularly impacted by cleaning are dense intersections on features such as car parks (eg the array of paths towards the upper left where intersections are broadly omitted or ‘cleaned’ in both images). These paths between cars aren’t really what we have in mind when we think of ‘intersections’, so the reduction in representation to far fewer points is arguably reasonable in these contexts. However, other paths which seem like more legitimate intersections have been cleaned away. The orange circles highlight provide ‘spot the difference’ examples where the increase in tolerance of 2m has meant the difference of including or excluding representation of a particular intersection.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/bury%20intersections.jpg" class="img-fluid figure-img" alt="The consolidate intersections function with a parameterisation of 12m has reduced the number of intersections to a more reasonable representation"></p>
+<p></p><figcaption class="figure-caption">Clean intersections (yellow) and the pedestrian network for Prestwich, in Bury, Greater Manchester, United Kingdom; the orange spotlights higlight comparisons between the choice of 10 m (left) versus 12 m (right) tolerance for intersection consolidation.</figcaption><p></p>
+</figure>
+</div>
+<p>Using this approach, an analyst must make some determination which value best can represent their overall region, or find a different method which could be robust for identifying true intersections across the different network topologies that may be present in an urban study region.</p>
+<p>For this reason, its important to check how the parameterisation of analysis is performed to make sure reality is being adequately represented. Software tools are not static and can also change over time — the consolidate intersections function in OSMnx has been updated and performs differently to the previous clean intersections function it replaced from an earlier version of the package. I am aware that the behaviour of the function is problematic in some contexts (eg downtown Helsinki, which has extremely detailed OpenStreetMap data becomes dramatically overcleaned; our local collaborator suggested a parameter of 5m would be appropriate there, however it may over-inflate intersection count in other more sparse contexts). In the coming year I would like to review other options for performing this task that are more robust to variation in network topology, and if you have recommendations, please share!</p>
+</section>
+<section id="evaluating-routing-from-an-origin" class="level2">
+<h2 class="anchored" data-anchor-id="evaluating-routing-from-an-origin">Evaluating routing from an origin</h2>
+<p>There are many different algorithms and software implementations of algorithms for evaluating distance from a point to one or many others given a directed or undirected graph representation of a routable network, using distance as a cost function. A popular algorithm is <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Djikstra’s shortest path</a> (<a href="http://www-m3.ma.tum.de/foswiki/pub/MN0506/WebHome/dijkstra.pdf">original paper</a>) and this can be calculated using the Python package <a href="https://networkx.org/documentation/networkx-1.10/reference/generated/networkx.algorithms.shortest_paths.weighted.single_source_dijkstra_path.html#networkx.algorithms.shortest_paths.weighted.single_source_dijkstra_path">networkx</a>. It may not be the fastest or most performant way to do this (e.g.&nbsp;in our Global indicators study we use a mix of <a href="https://lenkahas.com/post/pandana.html">networkx and pandana</a>, which are useful for different purposes). But for our example here its a good implementation that will work.</p>
+<p>Because things start getting a bit complicated from here, now is also a good time to be a bit more systematic with how we are tracking our project configuration and analysis parameters. To help us keep track of everything more easily, we’ll <a href="https://en.wikipedia.org/wiki/Abstraction_(computer_science)">abstract</a> the <a href="https://en.wikipedia.org/wiki/Parameter_(computer_programming)">parameter</a> values to a <a href="https://yaml.org/" style="font-size: 11.4pt;">YAML</a> (.yml) text file. This is a simple way to record our analysis configuration, which can be read into code. This means the code can be re-used for new analyses more readily — you don’t need to change your methods (unless you want to), just the way you parameterise them! But we’ll see how we go.</p>
+<ul>
+<li><p>For the origin point, we’ll record the address we’ll geocode, details about the <a href="https://docs.qgis.org/3.28/en/docs/gentle_gis_introduction/coordinate_reference_systems.html">coordinate reference system</a> our preliminary ‘NH Valencia’ point analysis will use (<a href="https://epsg.io/25830">EPSG 25830</a>, also known as ETRS89 or UTM Zone 30N; this allows us to use metres instead of degrees for coordinates, with reasonable accuracy of about 1 metre in Europe)</p></li>
+<li><p>We’ll also collate the parameters for our analysis, including a buffer distance to ensure we have sufficient information at the edge of the graph that relevant things aren’t chopped off (also known as ‘<a href="https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/edge-effects">edge effects</a>’)</p></li>
+</ul>
+<p>Check out the file <code>config.yml</code>, which we’ll soon load up to get these parameters.</p>
+<p>We’ll also define a couple of functions that we can later use, and we can also store these in an external file, say <code>functions.py</code>.</p>
+<p>So the below code illustrates how you might start a scripted analysis, importing the modules needed, your parameters, some functions, and taking a record of some aspects of the computational environment as a record of what is being done that we can later save as metadata to accompany our outputs.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> osmnx <span class="im">as</span> ox              <span class="co"># to derive network from OpenStreetMap data</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx           <span class="co"># for network analysis</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt <span class="co"># for creating plots</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np              <span class="co"># for numerical evaluation</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd             <span class="co"># for tabular data representation</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd         <span class="co"># for geographical data representation </span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yaml                     <span class="co"># to read YAML configuration files</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pprint <span class="im">import</span> pprint       <span class="co"># to print more readable text</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># import the custom functions we defined</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functions <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Load project configuration</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'config.yml'</span>) <span class="im">as</span> f:</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    config <span class="op">=</span> yaml.safe_load(f)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># import the variables defined in the configuration file</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># this allows us to access them directly</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> group <span class="kw">in</span> config.keys():</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">globals</span>()[group]<span class="op">=</span>config[group]</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># remove the configuration file now we've got everything out</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># not that we need to -- </span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># but since this is a class, this is how you would!</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">del</span> config</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co"># an example of how we could record metadata on software versions</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co"># that could be retained if we later save this to a file</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>analysis[<span class="st">'packages'</span>] <span class="op">=</span> {}</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>analysis[<span class="st">'packages'</span>][<span class="st">'osmnx'</span>] <span class="op">=</span> ox.__version__</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>analysis[<span class="st">'packages'</span>][<span class="st">'networkx'</span>] <span class="op">=</span> nx.__version__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Here is an example of how the configuration parameters we imported and exported on look parsed as dictionary data structures within python:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Origin parameters:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'address': 'Carrer de Ricardo Micó, 1, 46009 València, Valencia',
+ 'crs': 'epsg:25830'}</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Analysis parameters:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'access_distance': 500,
+ 'analysis_buffer': 600,
+ 'data': 'data/valencia_v2_es_2020_1600m_buffer.gpkg',
+ 'intersection_tolerance': 10,
+ 'packages': {'networkx': '2.8.7', 'osmnx': '1.2.2'},
+ 'pedestrian_definition': '["highway"]\n'
+                          '["area"!~"yes"] \n'
+                          '["highway"!~"motor|proposed|construction|abandoned|platform|raceway"]\n'
+                          '["foot"!~"no"]  \n'
+                          '["service"!~"private"] \n'
+                          '["access"!~"private"]',
+ 'population': 'valencia_v2_es_2020_grid_100mm_2022-11-02'}</code></pre>
+</div>
+</div>
+<p>Now we will use our origin and analysis parameters to gather the information we need for routing analyses from our origin point:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Geocode the origin and flesh out details</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'gdf'</span>] <span class="op">=</span> ox.geocoder.geocode_to_gdf(origin[<span class="st">'address'</span>]).to_crs(origin[<span class="st">'crs'</span>])</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'coordinates'</span>] <span class="op">=</span> {</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'x'</span>:origin[<span class="st">'gdf'</span>].centroid.x[<span class="dv">0</span>],</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'y'</span>:origin[<span class="st">'gdf'</span>].centroid.y[<span class="dv">0</span>]</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve the graph surrounding our origin</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'G'</span>] <span class="op">=</span> ox.graph_from_address(</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  origin[<span class="st">'address'</span>], </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  custom_filter<span class="op">=</span>analysis[<span class="st">'pedestrian_definition'</span>], </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  dist<span class="op">=</span>analysis[<span class="st">'analysis_buffer'</span>]</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Project the graph to support distance analyses  </span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'G_proj'</span>] <span class="op">=</span> ox.project_graph(</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    origin[<span class="st">'G'</span>], </span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    to_crs<span class="op">=</span>origin[<span class="st">'crs'</span>]</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    ).to_undirected()</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Record the closest network node identifier, </span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="co"># and its distance from our geocoded location</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'node'</span>],origin[<span class="st">'node_distance'</span>] <span class="op">=</span> ox.nearest_nodes(</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    origin[<span class="st">'G_proj'</span>],</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    X<span class="op">=</span>origin[<span class="st">'coordinates'</span>][<span class="st">'x'</span>],</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    Y<span class="op">=</span>origin[<span class="st">'coordinates'</span>][<span class="st">'y'</span>],</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    return_dist<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="co">## Record the route from the origin to each node</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'node_distances'</span>] <span class="op">=</span> nx.single_source_dijkstra_path_length(</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> origin[<span class="st">'G_proj'</span>], </span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>    source <span class="op">=</span> origin[<span class="st">'node'</span>], </span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>    cutoff <span class="op">=</span> analysis[<span class="st">'analysis_buffer'</span>], </span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>    weight<span class="op">=</span><span class="st">'length'</span></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="co">## Format the distance to nearest node as a dataframe</span></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'node_distances'</span>] <span class="op">=</span> pd.DataFrame.from_dict(</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>    origin[<span class="st">'node_distances'</span>],</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>    orient<span class="op">=</span><span class="st">'index'</span>,</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[<span class="st">'distance'</span>]</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialise a dictionary to store results we'll populate later</span></span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'indicators'</span>] <span class="op">=</span> {}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>If you now double click on ‘origin’ in the RStudio Cloud Environment pane (to the upper right of the interface), you’ll see this object now contains our input parameters, as well as a lot of additional derived information about the origin that we’ll use through our analyses.</p>
+<p>To model walking distance we will evaluate the distance from the nearest node to to other nodes across the undirected network graph. The reason we calculated the nearest node to our origin point is that it allows us to account for distance from this location to its nearest node between nodes on the graph. The nearest node may not be coincident with our starting point, so we record the distance and we can account for that in traversal estimates later. We then recorded the distance to all other nodes, which allows us to identify the network expanse reachable within some walkable distance and evaluate distances to destinations associated with these network nodes.</p>
+<p>This is a type of ‘<a href="https://en.wikipedia.org/wiki/Precomputation">pre-computing</a>’. In this case we’re not doing it in a particularly efficient way (and i glossed over some details you might want to consider; to calculate full distance I’d evaluate using the terminal nodes of nearest edge of origins and destinations, not just the nearest node; we do this in our global indicators tool), but the concept is powerful when you’re working with large datasets.</p>
+</section>
+<section id="identifying-a-local-walkable-neighbourhood" class="level2">
+<h2 class="anchored" data-anchor-id="identifying-a-local-walkable-neighbourhood">Identifying a local walkable neighbourhood</h2>
+<p>The impact of exposure to all the locations you could reach within comfortable walking distance of your home(s) across your life course is a powerful one in social epidemiology. There are different ways to model this, but a popular concept used to do this is a ‘sausage buffer’ (<a href="https://doi.org/10.1186/1476-072X-11-14">Forsyth et al, 2012</a>) — that is where you take all the network edges reachable within some walkable distance and buffer the geometry by a reasonable amount (e.g.&nbsp;50 m). The effect looks a bit like a pile of intestines, hence the gross name. I prefer to call it a ‘local walkable neighbourhood’, as its less visceral and more descriptive of what we’re trying to capture. A related concept is an <a href="https://wiki.openstreetmap.org/wiki/Isochrone">isochrone</a>. Once you have this geometric representation of a walkable neighbourhood, you can use the area to calculate built environment indicators such as the local neighbourhood population density, dwelling density or street connectivity per unit of area (e.g.&nbsp;km² or hectares).</p>
+<p>Here’s one way that you can do this, for a 400m walkable neighbourhood:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set a neighbourhood distance; we'll use 400 to keep things speedy</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'nh_distance'</span>]<span class="op">=</span><span class="dv">400</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># list the nodes reachable within neighbourhood distance</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>nh_nodes <span class="op">=</span> origin[<span class="st">'node_distances'</span>]<span class="op">\</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    .query(<span class="ss">f"distance &lt; </span><span class="sc">{</span>origin[<span class="st">'nh_distance'</span>]<span class="sc">}</span><span class="ss">"</span>)<span class="op">\</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    .index</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># extract the nodes in a useful format for plotting</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>gdf_nodes, gdf_edges <span class="op">=</span> ox.utils_graph.graph_to_gdfs(origin[<span class="st">'G_proj'</span>])</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co"># identify the edges that start and end with nodes reachable within 400m</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>nh_edges <span class="op">=</span> [(u,v,k) <span class="cf">for</span> (u,v,k) <span class="kw">in</span> gdf_edges<span class="op">\</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>              .index <span class="cf">if</span> u <span class="kw">in</span> nh_nodes <span class="kw">and</span> v <span class="kw">in</span> nh_nodes]</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co"># select and buffer edges within distance</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'neighbourhood'</span>] <span class="op">=</span> gpd.GeoDataFrame(</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  geometry<span class="op">=</span>gdf_edges.loc[nh_edges]<span class="op">\</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>     .<span class="bu">buffer</span>(<span class="dv">50</span>)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>     ).dissolve()</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'neighbourhood_area'</span>] <span class="op">=</span> origin[<span class="st">'neighbourhood'</span>].area[<span class="dv">0</span>]<span class="op">/</span><span class="dv">10</span><span class="op">**</span><span class="dv">6</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'pedshed'</span>] <span class="op">=</span> origin[<span class="st">'neighbourhood_area'</span>]<span class="op">/\</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>                    (np.pi<span class="op">*</span>origin[<span class="st">'nh_distance'</span>]<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span><span class="dv">10</span><span class="op">**</span><span class="dv">6</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="co"># plot walkable neighbourhood buffer    </span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>capture <span class="op">=</span> ax.plot(</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>        origin[<span class="st">'coordinates'</span>][<span class="st">'x'</span>],</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>        origin[<span class="st">'coordinates'</span>][<span class="st">'y'</span>],</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>        <span class="st">'o'</span>,</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'yellow'</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>capture <span class="op">=</span> gdf_edges.plot(ax<span class="op">=</span>ax,color<span class="op">=</span><span class="st">'black'</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>capture <span class="op">=</span> origin[<span class="st">'neighbourhood'</span>].plot(ax<span class="op">=</span>ax, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>ax.set_axis_off()</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>capture <span class="op">=</span> plt.suptitle(</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>origin[<span class="st">'nh_distance'</span>]<span class="sc">}</span><span class="ss"> m Local walkable neighbourhood area "</span></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"(</span><span class="sc">{</span>origin[<span class="st">'neighbourhood_area'</span>]<span class="sc">:0.2}</span><span class="ss"> km²)"</span> </span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>       )</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-11-17.png" class="img-fluid" width="288"></p>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The local walkable neighbourhood reachable within 400m of our hotel has an area of 0.28 km². If we think about the theoretical best scenario of being able to walk everywhere within 400m of the origin — that would be the circle with radius <span class="math inline">\(\pi r^2\)</span>, or <span class="math inline">\(\pi \times 0.4^2 = 0.50\)</span> km². The ratio of the proportion of the theoretically potentially reachable area surrounding an origin point is known as a <a href="https://pedshed.net/?page_id=5">pedshed</a> (pedestrian-shed) ratio; its calculated as the reachable area relative to the area of the circle with same radius as the parameterised walkable distance. So, <span class="math inline">\(0.282/0.583= 0.48\)</span>, or 48% of the area surrounding that point was estimated to be reachable.</p>
+<p>We can now calculate density statistics for this area:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract clean intersections using our configured value</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (determined following preliminary validation but also</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  subject to review --- solicit review of your generated</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># data by others in additon to yourlsef-- does it seem </span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># fit for purpose and adequate to represent what you are</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># trying to represent for this city?)</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'neighbourhood_intersections'</span>] <span class="op">=</span> ox.consolidate_intersections(</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>        origin[<span class="st">'G_proj'</span>], </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>        tolerance<span class="op">=</span>analysis[<span class="st">'intersection_tolerance'</span>], </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>        rebuild_graph<span class="op">=</span><span class="va">False</span>, </span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>        dead_ends<span class="op">=</span><span class="va">False</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"># get point intersection count</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co"># I don't necessarily think this is the most obious way to do this</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co"># But it works. (usually I do this in PostGIS wrapped in Python)</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Also, I'm trying to do things in separate steps rather than the</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co"># most efficient way, for demonstration purposes!</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'neighbourhood_intersections'</span>] <span class="op">=</span> origin[<span class="st">'neighbourhood_intersections'</span>][</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    np.isin(</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>        np.arange(<span class="dv">0</span>, <span class="bu">len</span>(origin[<span class="st">'neighbourhood_intersections'</span>])),</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>        origin[<span class="st">'neighbourhood'</span>].sindex<span class="op">\</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>          .query_bulk(</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>              origin[<span class="st">'neighbourhood_intersections'</span>].geometry,</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>              predicate<span class="op">=</span><span class="st">'intersects'</span>)[<span class="dv">0</span>]</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'neighbourhood_intersection_count'</span>] <span class="op">=</span> <span class="bu">len</span>(</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>    origin[<span class="st">'neighbourhood_intersections'</span>]</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'indicators'</span>][<span class="st">'intersections_per_sqkm'</span>] <span class="op">=</span> (</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>    origin[<span class="st">'neighbourhood_intersection_count'</span>]<span class="op">/</span>origin[<span class="st">'neighbourhood_area'</span>]</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a><span class="co"># plot walkable neighbourhood buffer    </span></span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>capture <span class="op">=</span> gdf_edges.plot(ax<span class="op">=</span>ax,color<span class="op">=</span><span class="st">'black'</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>capture <span class="op">=</span> origin[<span class="st">'neighbourhood'</span>].plot(ax<span class="op">=</span>ax, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>capture <span class="op">=</span> origin[<span class="st">'neighbourhood_intersections'</span>].plot(</span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax,</span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>    marker <span class="op">=</span> <span class="st">"."</span>)</span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>ax.set_axis_off()</span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a>capture <span class="op">=</span> plt.suptitle(</span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>origin[<span class="st">'nh_distance'</span>]<span class="sc">}</span><span class="ss"> m Local walkable neighbourhood area</span><span class="ch">\n</span><span class="ss">"</span></span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>     <span class="st">"intersection density: "</span></span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"(</span><span class="sc">{</span><span class="bu">int</span>(<span class="bu">round</span>(origin[<span class="st">'indicators'</span>][<span class="st">'intersections_per_sqkm'</span>],<span class="dv">0</span>))<span class="sc">}</span><span class="ss"> per km²)"</span> </span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a>       )</span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-12-19.png" class="img-fluid" width="288"></p>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For population, I pre-clipped the 2020 population estimates 100m grid from the European Commision <a href="https://ghsl.jrc.ec.europa.eu/download.php?ds=pop">Global Human Settlements Layer</a> for the Valencia region, so to save downloading this data we’ll use that – but the principle would be the same if using the source directly.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load population</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gdf = gpd.read_file(f'../{analysis["data"]}', layer=analysis['population'])</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># I commented the above out because the RStudio python environment failed to successfully install required software to do this --- it causes a crash</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># let's improvise for the sake of the exercise --- we'll guesstimate that population is 430 within 400m radius of our hotel.  The actual values range from about 15 (overlapping a road) to 130 in our area --- noting it has attributed population to our hotel --- its a modelled population distribution</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'population'</span>] <span class="op">=</span> <span class="dv">450</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'indicators'</span>][<span class="st">'population_per_sqkm'</span>] <span class="op">=</span> (</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    origin[<span class="st">'population'</span>]<span class="op">/</span>origin[<span class="st">'neighbourhood_area'</span>]</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>…. Okay — i’ve had a struggle with RStudio cloud at this point — I couldn’t successfully install some of the required packages it seems … so what we’ll do is .. <em>I ended up improvising in the above cell block, but here are other attempts retained fyi</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(c('sf','rgdal','tidyverse'))</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#library(sf)</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#library(rgdal)</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#library(tidyverse)</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#population &lt;- st_read('data/valencia_v2_es_2020_1600m_buffer.gpkg', #</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                layer='valencia_v2_es_2020_grid_100mm_2022-11-02')</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#plot(population$)</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># this loads, but I don't know/don't have time to get this into python</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>okay this is a big problem — can’t figure out how to read a file with python right now with this set up in R; major computational environment fail! we’ll move on… and later improvise… (the below section was written earlier)</p>
+</section>
+<section id="identifying-destinations" class="level2">
+<h2 class="anchored" data-anchor-id="identifying-destinations">Identifying destinations</h2>
+<p>Neighbourhoods having services and amenities (destinations) available within walking distance can support incidental physical activity. If you don’t need to drive to get to them, you may be more likely to walk, get exercise, reduce petrol consumption and emissions, save money, and so forth.</p>
+<p>We discussed above how amenities represented on OpenStreetMap in a particular place can be identified using a series of key-value pair synonyms. I have uploaded a dataset based on synonyms for three categories of destination type that we used in our 25-city study: ‘Fresh food / Market’; ‘Convenience’; and ‘Public transport (any)’. In the global indicators study, we also analysed public transport using GTFS data where available, but we won’t do this here.</p>
+<p>The follow code snippet reads in the CSV file dataset, and displays the key-value pair terms corresponding to these categories.</p>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>tags <span class="op">=</span> pd.read_csv(<span class="st">'./data/osm_destination_definitions.csv'</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>destinations <span class="op">=</span> tags[<span class="st">'Destination'</span>].unique()</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> d <span class="kw">in</span> destinations:</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="sc">{</span>d<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(tags.query(<span class="ss">f"Destination=='</span><span class="sc">{</span>d<span class="sc">}</span><span class="ss">'"</span>)[[<span class="st">'key'</span>,<span class="st">'value'</span>]].fillna(<span class="st">''</span>).to_markdown(index<span class="op">=</span><span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Fresh Food / Market</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">key</th>
+<th style="text-align: left;">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">supermarket</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">supermarket</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">amenity</td>
+<td style="text-align: left;">supermarket</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">building</td>
+<td style="text-align: left;">supermarket</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">grocery</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">bakery</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">pastry</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Tortillería</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">butcher</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">seafood</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">fishmonger</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">greengrocer</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">fruit</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">fruits</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">vegetables</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">deli</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">cheese</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">amenity</td>
+<td style="text-align: left;">marketplace</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">amenity</td>
+<td style="text-align: left;">market</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">amenity</td>
+<td style="text-align: left;">market_place</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">amenity</td>
+<td style="text-align: left;">public_market</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">marketplace</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">market</td>
+</tr>
+</tbody>
+</table>
+<p>Convenience</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">key</th>
+<th style="text-align: left;">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">convenience</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">amenity</td>
+<td style="text-align: left;">fuel</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">kiosk</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">newsagent</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">shop</td>
+<td style="text-align: left;">newsagency</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">amenity</td>
+<td style="text-align: left;">newsagency</td>
+</tr>
+</tbody>
+</table>
+<p>Public transport stop (any)</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">key</th>
+<th style="text-align: left;">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">public_transport</td>
+<td style="text-align: left;">platform</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">public_transport</td>
+<td style="text-align: left;">stop_position</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">highway</td>
+<td style="text-align: left;">bus_stop</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">highway</td>
+<td style="text-align: left;">platform</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">railway</td>
+<td style="text-align: left;">platform</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">public_transport</td>
+<td style="text-align: left;">station</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">amenity</td>
+<td style="text-align: left;">ferry_terminal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">railway</td>
+<td style="text-align: left;">tram_stop</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">railway</td>
+<td style="text-align: left;">stop</td>
+</tr>
+</tbody>
+</table>
+<p>When applying these concepts in a new place, its worth considering if there are other relevant tags. You are welcome to modify these and evaluate the impact of that, but otherwise we’ll draw on these terms for this exercise.</p>
+<p>We’ll use these tags now to retrieve geometries corresponding to each of these categories for a 500m radius of the <code>address</code> variable we defined earlier (ie. our hotel, or other address if you changed it).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>destination_data <span class="op">=</span> {}</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> d <span class="kw">in</span> destinations:</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  tag_lookup <span class="op">=</span> tags<span class="op">\</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    .query(<span class="ss">f"Destination=='</span><span class="sc">{</span>d<span class="sc">}</span><span class="ss">'"</span>)[[<span class="st">'key'</span>,<span class="st">'value'</span>]]<span class="op">\</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">'key'</span>)[<span class="st">'value'</span>]<span class="op">\</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">apply</span>(<span class="bu">list</span>)<span class="op">\</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    .to_dict()</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  destination_data[d] <span class="op">=</span> ox.geometries.geometries_from_address(</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    origin[<span class="st">'address'</span>], </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    tag_lookup, </span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    dist<span class="op">=</span><span class="dv">500</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we can plot what these look like, overlaying a name if one was present in the data:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="768"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-17-2.png" class="img-fluid" width="768"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-17-3.png" class="img-fluid" width="768"></p>
+</div>
+</div>
+<p>So, we might think</p>
+<ul>
+<li><p>“fresh food / market” looks pretty good (noting it combines supermarkets with other smaller locations like delis and bakeries) — but it didn’t capture the Russian supermarket “<a href="https://www.google.com/maps/place/%D0%91%D0%B5%D1%80%D0%B5%D0%B7%D0%BA%D0%B0+Supermercado/@39.4800242,-0.3871777,17z/data=!4m5!3m4!1s0xd604f59ef284417:0x13b1d78a536babbf!8m2!3d39.4815143!4d-0.3849447">Березка Supermercado</a>” around the corner on Carrer de Menéndez Pidal. This doesn’t appear to be an issue with our synonyms – I think it is just not coded on OpenStreetMap. In the context of other offerings, I don’t think this will have much impact for this location — but for a city, you might want to consider the implications</p></li>
+<li><p>“convenience” looks pretty sparse, although arguably some of this concept is wrapped up in “fresh food / market”; and the conceptual meaning in our framework could be questioned too — is it a bad thing that there isn’t a petrol station here? Perhaps this concept needs rethinking, however the broad rationale is that it captures other aspects of a ‘mixed use’ area with a range of services. One would think more places such as this would have been identified near us (eg in the shopping centre next door to us).</p></li>
+<li><p>“public transport”, including the bus depot next door, looks comprehensively covered in this area!</p></li>
+</ul>
+<p>So let’s re-prepare the destination analysis done above in a single code block and look how we can use this new information.</p>
+<div class="cell" data-warnings="false">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>destinations <span class="op">=</span> {</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'source'</span>: <span class="st">'./data/osm_destination_definitions.csv'</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>destinations[<span class="st">'tags'</span>] <span class="op">=</span> pd.read_csv(destinations[<span class="st">'source'</span>], encoding<span class="op">=</span><span class="st">"utf-8"</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>destinations[<span class="st">'types'</span>] <span class="op">=</span> destinations[<span class="st">'tags'</span>][<span class="st">'Destination'</span>].unique()</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>destinations[<span class="st">'data'</span>]<span class="op">=</span>{}</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># initialise daily living access score using two methods we'll compare</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'indicators'</span>][<span class="st">'daily_living_access_score_binary'</span>] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>origin[<span class="st">'indicators'</span>][<span class="st">'daily_living_access_score_continuous'</span>] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> d <span class="kw">in</span> destinations[<span class="st">'types'</span>]:</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># format look up table for tags </span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    destinations[<span class="st">'data'</span>][d] <span class="op">=</span> destinations[<span class="st">'tags'</span>]<span class="op">\</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>        .query(<span class="ss">f"Destination=='</span><span class="sc">{</span>d<span class="sc">}</span><span class="ss">'"</span>)[[<span class="st">'key'</span>,<span class="st">'value'</span>]]<span class="op">\</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>        .groupby(<span class="st">'key'</span>)[<span class="st">'value'</span>]<span class="op">\</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>        .<span class="bu">apply</span>(<span class="bu">list</span>)<span class="op">\</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>        .to_dict()</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># retrieve destinations matching tags in buffered distance from origin</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    destinations[<span class="st">'data'</span>][d] <span class="op">=</span> ox.geometries.geometries_from_address(</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>            origin[<span class="st">'address'</span>], </span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>            destinations[<span class="st">'data'</span>][d], </span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>            dist<span class="op">=</span>analysis[<span class="st">'analysis_buffer'</span>]</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>        )<span class="op">\</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>        .to_crs(origin[<span class="st">'crs'</span>])[<span class="st">'geometry'</span>]<span class="op">\</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>        .reset_index()<span class="op">\</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>        .query(<span class="st">"element_type=='node'"</span>)[[<span class="st">'osmid'</span>, <span class="st">'geometry'</span>]]</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># calculate the nearest node and distance to this for destinations</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>    destinations[<span class="st">'data'</span>][d][<span class="st">'node'</span>],<span class="op">\</span></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>    destinations[<span class="st">'data'</span>][d][<span class="st">'node_distance'</span>] <span class="op">=</span> ox<span class="op">\</span></span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>        .nearest_nodes(</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>            origin[<span class="st">'G_proj'</span>],</span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>            X<span class="op">=</span>destinations[<span class="st">'data'</span>][d].geometry.x,</span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>            Y<span class="op">=</span>destinations[<span class="st">'data'</span>][d].geometry.y,</span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>            return_dist<span class="op">=</span><span class="va">True</span></span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># join the destination and origin distance-to-nodes datasets</span></span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>    destinations[<span class="st">'data'</span>][d] <span class="op">=</span> destinations[<span class="st">'data'</span>][d].merge(</span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>        origin[<span class="st">'node_distances'</span>],</span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>        how<span class="op">=</span><span class="st">'left'</span>,</span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>        left_on<span class="op">=</span><span class="st">'node'</span>,</span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a>        right_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># calculate the full distance each destination to origin</span></span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>    destinations[<span class="st">'data'</span>][d][<span class="st">'full_distance'</span>] <span class="op">=</span> (</span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>        destinations[<span class="st">'data'</span>][d][<span class="st">'node_distance'</span>] <span class="op">+</span></span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>        destinations[<span class="st">'data'</span>][d][<span class="st">'distance'</span>] <span class="op">+</span></span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>        origin[<span class="st">'node_distance'</span>]</span>
+<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a>    ).<span class="bu">round</span>(<span class="dv">0</span>).astype(<span class="st">'Int64'</span>)</span>
+<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># record the id, node and distance to closest destination for origin</span></span>
+<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a>    origin[d] <span class="op">=</span> {}</span>
+<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>    (</span>
+<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a>      origin[d][<span class="st">'osmid'</span>],</span>
+<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a>      origin[d][<span class="st">'node'</span>],</span>
+<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a>      origin[d][<span class="st">'distance'</span>]</span>
+<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">=</span> destinations[<span class="st">'data'</span>][d]<span class="op">\</span></span>
+<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>          .sort_values(<span class="st">'full_distance'</span>)<span class="op">\</span></span>
+<span id="cb22-56"><a href="#cb22-56" aria-hidden="true" tabindex="-1"></a>          .iloc[<span class="dv">0</span>][[<span class="st">'osmid'</span>,<span class="st">'node'</span>,<span class="st">'full_distance'</span>]]<span class="op">\</span></span>
+<span id="cb22-57"><a href="#cb22-57" aria-hidden="true" tabindex="-1"></a>          .values</span>
+<span id="cb22-58"><a href="#cb22-58" aria-hidden="true" tabindex="-1"></a>    <span class="co"># evaluate binary access score and add to running access score sum</span></span>
+<span id="cb22-59"><a href="#cb22-59" aria-hidden="true" tabindex="-1"></a>    origin[d][<span class="st">'access_binary'</span>] <span class="op">=</span> binary_access_score(</span>
+<span id="cb22-60"><a href="#cb22-60" aria-hidden="true" tabindex="-1"></a>        origin[d][<span class="st">'distance'</span>] , analysis[<span class="st">'access_distance'</span>]</span>
+<span id="cb22-61"><a href="#cb22-61" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb22-62"><a href="#cb22-62" aria-hidden="true" tabindex="-1"></a>    origin[<span class="st">'indicators'</span>][<span class="st">'daily_living_access_score_binary'</span>] <span class="op">+=</span> (</span>
+<span id="cb22-63"><a href="#cb22-63" aria-hidden="true" tabindex="-1"></a>      origin[d][<span class="st">'access_binary'</span>]</span>
+<span id="cb22-64"><a href="#cb22-64" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb22-65"><a href="#cb22-65" aria-hidden="true" tabindex="-1"></a>    <span class="co"># evaluate continuous access score and add to running access score sum</span></span>
+<span id="cb22-66"><a href="#cb22-66" aria-hidden="true" tabindex="-1"></a>    origin[d][<span class="st">'access_continuous'</span>] <span class="op">=</span> continuous_access_score(</span>
+<span id="cb22-67"><a href="#cb22-67" aria-hidden="true" tabindex="-1"></a>        origin[d][<span class="st">'distance'</span>] , analysis[<span class="st">'access_distance'</span>]</span>
+<span id="cb22-68"><a href="#cb22-68" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb22-69"><a href="#cb22-69" aria-hidden="true" tabindex="-1"></a>    origin[<span class="st">'indicators'</span>][<span class="st">'daily_living_access_score_continuous'</span>] <span class="op">+=</span> (</span>
+<span id="cb22-70"><a href="#cb22-70" aria-hidden="true" tabindex="-1"></a>      origin[d][<span class="st">'access_continuous'</span>]</span>
+<span id="cb22-71"><a href="#cb22-71" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb22-72"><a href="#cb22-72" aria-hidden="true" tabindex="-1"></a>    <span class="co"># display results for this destination</span></span>
+<span id="cb22-73"><a href="#cb22-73" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="ch">\n\n</span><span class="sc">{</span>d<span class="sc">}</span><span class="ch">\n</span><span class="sc">{</span>origin[d]<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb22-74"><a href="#cb22-74" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+
+Fresh Food / Market
+{'osmid': 6625118553, 'node': 6625150686, 'distance': 423, 'access_binary': 1, 'access_continuous': 0.6835208937363156}
+
+
+Convenience
+{'osmid': 839488381, 'node': 217780772, 'distance': &lt;NA&gt;, 'access_binary': 0, 'access_continuous': 0}
+
+
+Public transport stop (any)
+{'osmid': 10044791821, 'node': 193553306, 'distance': 105, 'access_binary': 1, 'access_continuous': 0.9811090380629609}</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="ss">f"</span><span class="ch">\n\n</span><span class="ss">Daily living score (binary): "</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="ss">f"</span><span class="sc">{</span>origin[<span class="st">'indicators'</span>][<span class="st">'daily_living_access_score_binary'</span>]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="ss">f"</span><span class="ch">\n\n</span><span class="ss">Daily living score (continuous): "</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="ss">f"</span><span class="sc">{</span>origin[<span class="st">'indicators'</span>][<span class="st">'daily_living_access_score_continuous'</span>]<span class="sc">}</span><span class="ss">"</span>  </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+
+Daily living score (binary): 2
+
+Daily living score (continuous): 1.6646299317992765</code></pre>
+</div>
+</div>
+<p>So we have calculated our first indicators now for our hotel, and the results are worth thinking about.</p>
+<ul>
+<li><p>For a Fresh Food Market, using a binary score evaluated against 500 metres, this has been evaluated as having access, so scores 1/1. However, with the distance to closest Fresh Food Market estimated at 438 metres, using a continuous scoring method this was 0.65/1. Where the Russian supermarket 270 m away identified, the score would have been 0.91.</p></li>
+<li><p>Few convenience stores were identified, and we flagged this as a conceptual concern already. Those identified could not be routed to, and the reasons for this should be investigated.</p></li>
+<li><p>Access to public transport is near perfect at 105 metres; to be expected be located next to a bus station.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> d <span class="kw">in</span> destinations[<span class="st">'types'</span>]:</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  origin[d][<span class="st">'route'</span>] <span class="op">=</span> ox.distance.shortest_path(</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    origin[<span class="st">'G'</span>], </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    origin[<span class="st">'node'</span>], </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    origin[d][<span class="st">'node'</span>], </span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    weight<span class="op">=</span><span class="st">'length'</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    ) </span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  fig, ax <span class="op">=</span> ox.plot_graph_route(</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>      G <span class="op">=</span> origin[<span class="st">'G_proj'</span>], </span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>      route <span class="op">=</span> origin[d][<span class="st">'route'</span>], </span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>      node_size<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>      bgcolor<span class="op">=</span><span class="st">'white'</span>, </span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>      edge_color<span class="op">=</span><span class="st">'gray'</span>, </span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>      node_color<span class="op">=</span><span class="st">'black'</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>  plt.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-19-7.png" class="img-fluid" width="768"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-19-8.png" class="img-fluid" width="768"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-19-9.png" class="img-fluid" width="768"></p>
+</div>
+</div>
+</section>
+<section id="walkability" class="level2">
+<h2 class="anchored" data-anchor-id="walkability">Walkability</h2>
+<p>Okay — we have our indicators (forgiving some improvisation — we don’t have a true estimate for population density due to system/time constraints). So, notwithstanding challenges (for just a single point!) we can attempt to calculate a walkability index.</p>
+<p>So the standard walkability measure we calculate in much of our work is intended for more than just 1 point — its an index of relative walkabilty, and calculated as a sum of z-scores for population density, street connectivity (intersection density) and access to mixed services and amenities (land use mix).</p>
+<p>A z-score is a standardised score calculated as the difference of some observed value from an empirically defined reference standard (the average), divided by the standard deviation (which is a measure of variation). Assuming a normal distribution (which is a limitation we’ll discuss) 95% of observations would lie within 1.96 sd of the sample mean. So that’s all to say, by dividing by 1 sd, we can get our 3 variables on an equivalent scale relative to the observed variation in the population.</p>
+<p>Anyway – i could write paragraphs about the above, but for a single point its pointless — there’s no variation its just itself!</p>
+<p>What you want in this case (and perhaps in other cases) is a more meaningful standard, perhaps one that is relevant to practice.</p>
+<p>So let’s say our standards that should be met (assuming ‘more is better’… not always necessesarily so) could be the following, drawing on lower bounds from <a href="https://doi.org/10.1016/S2214-109X(22)00068-7">Cerin et al.</a></p>
+<p>intersections: 106</p>
+<p>population: 5677</p>
+<p>and using the ‘Meatloaf’ method, let’s say ‘2 out of 3 destinations isn’t bad’</p>
+<p>daily living score: 2</p>
+<p>Let’s as an exercise come up with a scoring method for these</p>
+<p>a basic one could be</p>
+<p>int(observed &gt;= standard)</p>
+<p>which creates a set of binary indicators we could sum up; that’s pretty course for a single point (a score of 0,1,2 or 3; or in the range 0 to 1 if we divide by 3), but taking the average across a larger area, we’d probably get a nicer continuous score that could capture some meaningful variation.</p>
+<p>We’ll code this together, then discuss Bury :)</p>
+</section>
+</section>
+<section id="measuring-walkability-for-a-city" class="level1">
+<h1>Measuring walkability for a city</h1>
+<section id="retrieve-population-data-from-global-human-settlements-layer" class="level2">
+<h2 class="anchored" data-anchor-id="retrieve-population-data-from-global-human-settlements-layer">Retrieve population data from Global Human Settlements Layer</h2>
+</section>
+<section id="retrieve-an-archived-file-of-openstreetmap-for-a-point-in-time-and-place" class="level2">
+<h2 class="anchored" data-anchor-id="retrieve-an-archived-file-of-openstreetmap-for-a-point-in-time-and-place">Retrieve an archived file of OpenStreetMap for a point in time and place</h2>
+</section>
+<section id="derive-a-dataset-of-features-of-interest-from-the-openstreetmap-data-using-key-value-pair-tags-and-synonyms" class="level2">
+<h2 class="anchored" data-anchor-id="derive-a-dataset-of-features-of-interest-from-the-openstreetmap-data-using-key-value-pair-tags-and-synonyms">Derive a dataset of features of interest from the OpenStreetMap data using key-value pair tags and synonyms</h2>
+<ul>
+<li><p>fresh food market, convenience, public transport</p></li>
+<li><p>in global study we also use GTFS for public transport, but not here</p></li>
+<li><p>we also allow option for custom destination upload (but not here)</p></li>
+</ul>
+</section>
+<section id="derive-a-routable-pedestrian-network-from-openstreetmap-using-osmnx" class="level2">
+<h2 class="anchored" data-anchor-id="derive-a-routable-pedestrian-network-from-openstreetmap-using-osmnx">Derive a routable pedestrian network from OpenStreetMap using OSMnx</h2>
+<ul>
+<li><p>actually a limitation in the current approach, as currently this is done via Overpass API, ie ‘latest’; ideally would draw on same OSM file (or other features would be also drawn from OSMnx)</p></li>
+<li><p>I can discuss this as one thing (amongst others we want to address in our workflow in future)</p></li>
+</ul>
+</section>
+<section id="derive-cleaned-intersections" class="level2">
+<h2 class="anchored" data-anchor-id="derive-cleaned-intersections">Derive cleaned intersections</h2>
+</section>
+<section id="generate-sample-points-at-regular-intervals-along-routable-network" class="level2">
+<h2 class="anchored" data-anchor-id="generate-sample-points-at-regular-intervals-along-routable-network">Generate sample points at regular intervals along routable network</h2>
+</section>
+<section id="summarise-population-distribution-and-density-statistics-for-population-and-intersections-for-grid-cells" class="level2">
+<h2 class="anchored" data-anchor-id="summarise-population-distribution-and-density-statistics-for-population-and-intersections-for-grid-cells">Summarise population distribution and density statistics for population and intersections for grid cells</h2>
+</section>
+<section id="estimate-1000m-walkable-neighbourhood-densities-for-sample-points" class="level2">
+<h2 class="anchored" data-anchor-id="estimate-1000m-walkable-neighbourhood-densities-for-sample-points">Estimate 1000m walkable neighbourhood densities for sample points</h2>
+</section>
+<section id="estimate-access-to-each-amenity-type-within-threshold-distances-ie.-for-this-500m" class="level2">
+<h2 class="anchored" data-anchor-id="estimate-access-to-each-amenity-type-within-threshold-distances-ie.-for-this-500m">Estimate access to each amenity type within threshold distances (ie. for this, 500m)</h2>
+</section>
+<section id="calculate-a-daily-living-access-score-as-a-measure-of-access-to-a-mixed-range-of-services-and-amenities-ie.-land-use-mix-proxy-ill-provide-links-to-literature-re-this" class="level2">
+<h2 class="anchored" data-anchor-id="calculate-a-daily-living-access-score-as-a-measure-of-access-to-a-mixed-range-of-services-and-amenities-ie.-land-use-mix-proxy-ill-provide-links-to-literature-re-this">Calculate a ‘daily living access score’ as a measure of access to a mixed range of services and amenities (ie. land use mix proxy; i’ll provide links to literature re this)</h2>
+</section>
+<section id="calculate-average-scores-of-population-density-street-connectivity-itnersection-density-and-daily-living-score-for-small-area-hexagon-grid" class="level2">
+<h2 class="anchored" data-anchor-id="calculate-average-scores-of-population-density-street-connectivity-itnersection-density-and-daily-living-score-for-small-area-hexagon-grid">Calculate average scores of population density, street connectivity (itnersection density) and daily living score for small area hexagon grid</h2>
+</section>
+<section id="calculate-walkability-index-for-sample-points-using-two-methods" class="level2">
+<h2 class="anchored" data-anchor-id="calculate-walkability-index-for-sample-points-using-two-methods">Calculate walkability index for sample points using two methods</h2>
+<ul>
+<li><p>as a sum of standardised scores for population density, street connectivity and daily living score (ie. comparison against a relative standard)</p>
+<ul>
+<li>this is what we did in our 25 city study, for within and between city comparisons</li>
+</ul></li>
+<li><p>as a sum of scores for meeting recommended threshold of these variables (ie. comparison against a fixed standard)</p>
+<ul>
+<li>this is what we have considered doing for the 1000 city study, but are deferring this decision</li>
+</ul></li>
+</ul>
+</section>
+<section id="compare-and-consider-applications-and-implications-of-these-walkability-index-implementations-and-strengths-and-limitations-of-both-approaches" class="level2">
+<h2 class="anchored" data-anchor-id="compare-and-consider-applications-and-implications-of-these-walkability-index-implementations-and-strengths-and-limitations-of-both-approaches">Compare and consider applications and implications of these walkability index implementations, and strengths and limitations of both approaches</h2>
+</section>
+<section id="walkability-and-deprivation" class="level2">
+<h2 class="anchored" data-anchor-id="walkability-and-deprivation">Walkability and Deprivation?</h2>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

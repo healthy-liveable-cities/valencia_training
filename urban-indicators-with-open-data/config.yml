@@ -1,0 +1,25 @@
+%YAML 1.2
+---
+origin:
+    address: Carrer de Ricardo Micó, 1, 46009 València, Valencia
+    
+    crs: epsg:25830
+    
+analysis:
+    pedestrian_definition: |-
+         ["highway"]
+         ["area"!~"yes"] 
+         ["highway"!~"motor|proposed|construction|abandoned|platform|raceway"]
+         ["foot"!~"no"]  
+         ["service"!~"private"] 
+         ["access"!~"private"]
+         
+    access_distance: 500
+    
+    analysis_buffer: 600
+    
+    intersection_tolerance: 10
+    
+    data: 'data/valencia_v2_es_2020_1600m_buffer.gpkg'
+
+    population: 'valencia_v2_es_2020_grid_100mm_2022-11-02'
