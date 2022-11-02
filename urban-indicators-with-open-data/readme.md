@@ -3,6 +3,8 @@ Urban indicators with open data
 Carl Higgs
 2 November 2022
 
+*Created as an RStudio Cloud environment for a training session for the JIBE project with researchers from Cambridge and RMIT Universities and ISGlobal on 2 November 2022 in València, Spain.  This page can also be found on the web page [here](https://healthy-liveable-cities.github.io/valencia_training/urban-indicators-with-open-data/index.html), which also contains a table-of-contents sidepane.  That's probably the best way to view it.*
+
 # Session overview
 
 This session will outline an open science analysis workflow using
@@ -376,7 +378,7 @@ fig,ax = ox.plot_graph(
 ```
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-5-1.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-5-1.png"
 width="768" />
 
 The above map looks pretty recognisable to me — we can see the street
@@ -438,31 +440,31 @@ for place in places:
 ```
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-7-3.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-7-3.png"
 width="1728" />
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-7-4.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-7-4.png"
 width="1728" />
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-7-5.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-7-5.png"
 width="1728" />
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-7-6.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-7-6.png"
 width="1728" />
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-7-7.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-7-7.png"
 width="1728" />
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-7-8.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-7-8.png"
 width="1728" />
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-7-9.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-7-9.png"
 width="1728" />
 
 *(Please excuse the look of these plots -- I wrote this code to be run
@@ -782,7 +784,7 @@ plt.show()
 ```
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-11-17.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-11-17.png"
 width="288" />
 
 ``` python
@@ -859,7 +861,7 @@ plt.show()
 ```
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-12-19.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-12-19.png"
 width="288" />
 
 ``` python
@@ -1015,22 +1017,22 @@ Now we can plot what these look like, overlaying a name if one was
 present in the data:
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-17-1.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-17-1.png"
 width="768" />
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-17-2.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-17-2.png"
 width="768" />
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-17-3.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-17-3.png"
 width="768" />
 
 So, we might think
 
 - “fresh food / market” looks pretty good (noting it combines
   supermarkets with other smaller locations like delis and bakeries) —
-  but it didn’t capture the Russian supermarket “[Березка
+  but it didn’t capture the Russian supermarket “[???????
   Supermercado](https://www.google.com/maps/place/%D0%91%D0%B5%D1%80%D0%B5%D0%B7%D0%BA%D0%B0+Supermercado/@39.4800242,-0.3871777,17z/data=!4m5!3m4!1s0xd604f59ef284417:0x13b1d78a536babbf!8m2!3d39.4815143!4d-0.3849447)”
   around the corner on Carrer de Menéndez Pidal. This doesn’t appear to
   be an issue with our synonyms – I think it is just not coded on
@@ -1195,15 +1197,15 @@ for d in destinations['types']:
 ```
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-19-7.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-19-7.png"
 width="768" />
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-19-8.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-19-8.png"
 width="768" />
 
 <img
-src="urban-indicators-with-open-data_files/figure-gfm/unnamed-chunk-19-9.png"
+src="urban-indicators-with-open-data_files/figure-html/unnamed-chunk-19-9.png"
 width="768" />
 
 ## Walkability
